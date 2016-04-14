@@ -2,13 +2,13 @@
     <h1 class="page-title">Add User</h1>
     <form ng-submit="submitForm()">
         <label ng-class="{ 'error': nameError }">
-            <span class="required">Name </span>
+            <span class="required">Name &star; </span>
             <input type="text" name="name" ng-model="newUser.name" ng-class="{ 'error': nameError }">
         </label>
         <small ng-class="{ 'error': nameError }" ng-show="nameError">Cannot have blank name</small>
 
         <label ng-class="{ 'error': emailError }">
-            <span class="required">Email </span>
+            <span class="required">Email &star;</span>
             <input type="email" name="email" ng-model="newUser.email" ng-class="{ 'error': emailError }">
         </label>
         <small ng-class="{ 'error': emailError }" ng-show="emailError">Cannot have blank email</small>

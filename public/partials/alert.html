@@ -1,10 +1,10 @@
 <div id="alertBox" class="row" ng-show="alert.showAlerts && showAlert">
 	<ul class="small-12 columns">
 		<span>Server Responses here:</span>
-		<li data-alert class="alert-box {{alertObj.status}} radius" ng-repeat="alertObj in alert.messages track by $index">
+		<li data-alert class="alert-box {{alertMsg.status}} radius" ng-repeat="alertMsg in alert.messages track by $index">
 			<!--crossing here times "*"-->
 
-			<span ng-bind="alertObj.message"></span>
+			<span ng-bind="alertMsg.message"></span>
 			<a href="" class="close" ng-click="hideAlert($index)">&times;</a>
 		</li>
 	</ul>

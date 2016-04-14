@@ -23,21 +23,24 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: $font-primary;
+  font-family: Courier;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
   color: inherit;
+  font-family: Consolas;
+  font-style: oblique;
 }
 
 
 
 input, textarea, select, textarea {
-  font-family: $font-primary;
+  background: #eeeeee;
+  font-family: Courier;
 
-  @include border-radius(3px);
+
 }
 
 a, a:hover, a:visited {
@@ -48,11 +51,15 @@ a, a:hover, a:visited {
   background: red;
   width:20%;
   height:100%;
+  font-weight: bold;
+  font-style: oblique;
 }
 .deleteTaskButton{
   background: red;
   width:80%;
   height:100%;
+  font-weight: bold;
+  font-style: oblique;
 }
 
 
@@ -62,7 +69,18 @@ a, a:hover, a:visited {
   height:100%;
 
 }
+
+small{
+  font-weight: bold;
+  background:red;
+  color:black;
+  font-family: monospace;
+  font-size: 200%;
+  padding-top: 0;
+  margin-top: 0;
+}
 #addUser,#addTask{
+  font-weight: bold;
   background: green;
   color:white;
   font-size:250%;
@@ -89,4 +107,21 @@ a, a:hover, a:visited {
 
 #repeatTask{
   height:70px;
+}
+
+#setString{
+  font-family: fantasy;
+  font-style: inherit;
+}
+
+#setHint{
+  font-family: Georgia;
+  font-style: inherit;
+}
+
+label{
+  font-style: oblique;
+  color: darkgrey;
+  font-weight: bolder;
+
 }

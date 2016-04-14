@@ -114,7 +114,8 @@ mp4Controllers.controller('TaskListController', [
       $scope.whereFilters = [
         { label: 'Pending'  , value: { completed: false, assignedUserName: { $ne: 'unassigned' } } },
         { label: 'Completed', value: { completed: true } },
-        { label: 'All'      , value: {} }
+        { label: 'All'      , value: {} },
+        { label: 'Unassigned', value: {assignedUserName: 'unassigned'} }
       ];
       $scope.sort = 1;
       $scope.sortElements = [

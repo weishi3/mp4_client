@@ -2,23 +2,26 @@
     <h1 class="page-title">Add Task</h1>
     <form ng-submit="submitForm()">
         <label ng-class="{ 'error': nameError }">
-        	<span class="required">Name </span>
+        	<span class="required">Name &star;</span>
             <input type="text" name="name" ng-model="newTask.name" ng-class="{ 'error': nameError }">
         </label>
         <small ng-class="{ 'error': nameError }" ng-show="nameError">Cannot have blank name</small>
 
         <label ng-class="{ 'error': deadlineError }">
-        	<span class="required">Deadline </span>
+        	<span class="required">Deadline &star; </span>
             <datepicker date-month-title="selected year">
                 <input type="text" datepicker name="deadline" ng-model="newTask.deadline" ng-class="{ 'error': deadlineError }">
             </datepicker>
         </label>
         <small ng-class="{ 'error': deadlineError }" ng-show="deadlineError" ng-bind="deadlineErrorMsg"></small>
-
+        <br>
+        <br>
         <label>
         	<span>Description </span>
-        	<textarea name="description" ng-model="newTask.description"></textarea>
+        	<textarea id="textarea1" name="description" ng-model="newTask.description"></textarea>
         </label>
+        <br>
+
 
         <label>
         	<span>Assigned User</span>
