@@ -1,0 +1,78 @@
+<div class="small-12 columns">
+
+    <div class="container small-6 columns">
+        <h2 class="page-title">Task List</h2>
+    </div>
+    <div class="container medium-6 columns">
+        <a href="#/tasks/new" id="addTask">Add Task</a>
+    </div>
+
+
+
+
+    <div >
+        <br>
+        <span>Display: </span>
+        <select ng-model="filter" ng-options="opt as opt.label for opt in whereFilters"></select>
+        <span>Sort In Back End: </span>
+        <select ng-model="sortElement" ng-options="opt as opt.label for opt in sortElements"></select>
+
+        <input type="radio" ng-model="sort" value="1"> Ascending
+        <input type="radio" ng-model="sort" value="-1"> Descending
+    </div>
+    <div ng-hide="tasks && tasks.length > 0">No tasks is founded!</div>
+    <div ng-show="tasks && tasks.length > 0">
+
+        <div class="small-4 columns">
+
+        <button id="prev" class="button" ng-click="prevPage()">&leftarrow;Previous Page</button>
+        </div>
+
+        <div class="small-4 columns">
+            <span>Page <span ng-bind="(currentPage + 1) | number: 0"></span> of <span ng-bind="maxPage"></span></span>
+        </div>
+
+        <div class="small-4 columns">
+            <button  id="next" class="button" ng-click="nextPage()">Next Page &rightarrow;</button>
+        </div>
+
+
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="tableLabel">Task Name</th>
+                    <th class="tableLabel">DateCreated</th>
+                    <th class="tableLabel">Status</th>
+                    <th class="tableLabel">Assigned User</th>
+                    <th class="tableLabel">Delete Task</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="repeatTask" ng-repeat="task in tasks |orderBy:order">
+                    <td>
+                        <a ng-href="#/task/{{task._id}}" ng-bind="task.name"></a>
+
+
+                    </td>
+                    <td>
+                         <span>{{task.dateCreated}}</span>
+                    </td>
+                    <td>
+                        <span ng-if="task.completed">Completed</span>
+                        <span ng-if="!task.completed && task.assignedUserName === 'unassigned'">Unassigned</span>
+                        <span ng-if="!task.completed && task.assignedUserName !== 'unassigned'">Pending</span>
+                    </td>
+                    <td>
+                        <a ng-href="#/user/{{task.assignedUser}}" ng-bind="task.assignedUserName" ng-show="task.assignedUser"></a>
+                        <span ng-hide="task.assignedUser">n/a</span>
+                    </td>
+                    <td>
+                        <button class="deleteTaskButton" ng-click="deleteTask(task._id, task.assignedUser)">Delete</button>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

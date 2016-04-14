@@ -1,0 +1,29 @@
+<div class="small-12 columns">
+    <h1 class="page-title">Add Task</h1>
+    <form ng-submit="submitForm()">
+        <label ng-class="{ 'error': nameError }">
+        	<span class="required">Name </span>
+            <input type="text" name="name" ng-model="newTask.name" ng-class="{ 'error': nameError }">
+        </label>
+        <small ng-class="{ 'error': nameError }" ng-show="nameError">Cannot have blank name</small>
+
+        <label ng-class="{ 'error': deadlineError }">
+        	<span class="required">Deadline </span>
+            <datepicker date-month-title="selected year">
+                <input type="text" datepicker name="deadline" ng-model="newTask.deadline" ng-class="{ 'error': deadlineError }">
+            </datepicker>
+        </label>
+        <small ng-class="{ 'error': deadlineError }" ng-show="deadlineError" ng-bind="deadlineErrorMsg"></small>
+
+        <label>
+        	<span>Description </span>
+        	<textarea name="description" ng-model="newTask.description"></textarea>
+        </label>
+
+        <label>
+        	<span>Assigned User</span>
+        	<select ng-model="userChoice" ng-options="opt as opt.label for opt in userList"></select>
+    	</label>
+        <button class="button" type="submit">Submit</button>
+    </form>
+</div>

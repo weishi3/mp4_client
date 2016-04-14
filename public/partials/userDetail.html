@@ -1,0 +1,59 @@
+<div class="small-12 columns">
+    <h1 class="page-title" ng-show="user" ng-bind="user.name"></h1>
+    <div ng-hide="user">User not found.</div>
+    <div ng-show="user">
+        <!-- <ul>
+            <li ng-if="key[0] !== '_' && key !== 'dateCreated'" ng-repeat="(key, value) in user">
+                <span ng-bind="key"></span>: 
+                <span ng-bind="value"></span>
+            </li>
+        </ul> -->
+        <table>
+            <tbody>
+                <tr ng-if="key[0] !== '_' && key !== 'dateCreated'" ng-repeat="(key, value) in user">
+                    <td ng-bind="key"></td>
+                    <td ng-bind="value"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="page-section"><span ng-bind="user.name"></span>'s Pending Tasks:</h2>
+        <div ng-hide="userTasks.length > 0"><span ng-bind="user.name"></span> does not have any pending tasks now.</div>
+        <table ng-show="userTasks.length > 0">
+            <thead>
+                <tr>
+                    <th class="tableLabel">Task Name</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="task in userTasks">
+                    <td>
+                        <a ng-href="#/task/{{task._id}}"><span ng-bind="task.name"></span></a>
+                    </td>
+                    <td>
+                        <button class="MarkButton" ng-click="completeTask(task._id)">Mark As Completed!</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="page-section"><span ng-bind="user.name"></span>'s Completed Tasks:</h2>
+        <table ng-show="userCompletedTasks && userCompletedTasks.length > 0">
+            <thead>
+                <tr>
+                    <th class="tableLabel">Task Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="task in userCompletedTasks">
+                    <td>
+                        <a ng-href="#/task/{{task._id}}"><span ng-bind="task.name"></span></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div  ng-hide="userCompletedTasks && userCompletedTasks.length > 0"><span ng-bind="user.name"></span> has not completed any tasks.</div>
+
+    </div>
+</div>

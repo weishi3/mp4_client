@@ -1,0 +1,31 @@
+<div class="small-12 columns">
+    <h2 class="page-title">Settings</h2>
+    <form>
+        <br>
+        <br>
+        <div class="row">
+            <div class="small-12 columns">
+                <input type="checkbox" ng-model="showAlerts"> Show Response & Alert
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <div class="small-12 columns">You may input your local database like: http://localhost:4000</div>
+            <br>
+            <div class="small-12 columns">Or input your MongoDB URL BELOW!</div>
+            <br>
+            <br>
+            <div class="small-12 columns">
+                <input ng-model="url" type="text" placeholder="URL">
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="text-center">
+            <button id="saveURL" ng-click="setUrl()" class="button">Save</button>
+        </div>
+        <br>
+        <div ng-bind="displaySave"></div>
+    </form>
+</div>

@@ -1,0 +1,19 @@
+<div class="small-12 columns">
+    <h1 class="page-title" ng-bind="task.name" ng-show="task"></h1>
+    <div ng-hide="task">Task not found.</div>
+    <div ng-show="task">
+        <a href="#/task/{{task._id}}/edit" class="button">Edit Task</a>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Assigned User</td>
+                    <td><a ng-href="#/user/{{assignedUserId}}"><span ng-bind="assignedUserName"></span></a></td>
+                </tr>
+                <tr ng-if="key[0] !== '_' && key !== 'dateCreated'" ng-repeat="(key, value) in task">
+                    <td ng-bind="key"></td>
+                    <td ng-bind="value"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

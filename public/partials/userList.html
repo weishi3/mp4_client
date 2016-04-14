@@ -1,0 +1,28 @@
+<div class="container small-12 columns">
+    <div class="container small-6 columns">
+     <h2 class="page-title">User List</h2>
+    </div>
+    <div class="container medium-6 columns">
+        <a href="#/users/new" id="addUser">Add User</a>
+    </div>
+
+    <div ng-hide="users && users.length > 0">No users found.</div>
+    <table ng-show="users && users.length > 0">
+        <thead>
+            <tr>
+                <th class="tableLabel">User Name</th>
+                <th class="tableLabel">Delete User</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users">
+                <td>
+                    <a ng-href="#/user/{{user._id}}" ng-bind="user.name"></a>
+                </td>
+                <td>
+                    <button class="deleteButton"  ng-click="deleteUser(user._id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
